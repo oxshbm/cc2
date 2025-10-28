@@ -9,6 +9,11 @@ import {
   BookOpen,
   MessageSquare,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import StudyGroups from "./StudyGroups";
+
+
+
 
 function Dashboard() {
   const features = [
@@ -49,6 +54,13 @@ function Dashboard() {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const goToStudyGroups = () =>{
+
+    navigate("/StudyGroups")
+  }
+
   return (
     <div className="bg-[#e8d8f3] min-h-screen">
       <Header />
@@ -59,7 +71,7 @@ function Dashboard() {
           Explore Campus Connect Features
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        <div onClick={goToStudyGroups} className="flex flex-wrap justify-center gap-8">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
